@@ -13,7 +13,16 @@ class Paragraph1(ThreeDSlide):
         title = VGroup(
             Text("블랙홀이란 무엇인가?", t2c={"블랙홀": BLUE}).scale(1.5),
             Text("발표: 박사랑", t2c={"박사랑": YELLOW}),
-            Text("Manim으로 만듦", t2w={"Manim": BOLD}).scale(0.5),
+        ).arrange(DOWN)
+        
+        lyric1 = VGroup(
+            Text("저기 사라진 별의 자리", t2c={"별": YELLOW}),
+            Text("아스라이 하얀빛", t2c={"빛": YELLOW}),
+            Text("한동안은 꺼내볼수 있을꺼야"),
+        ).arrange(DOWN)
+        lyric2 = VGroup(
+            Text("그래도 이제는,"),
+            Text("사건의 지평선 너머로", t2c={"사건의 지평선": YELLOW}),
         ).arrange(DOWN)
         
         
@@ -93,8 +102,14 @@ class Paragraph1(ThreeDSlide):
         
         self.play(FadeIn(title))
         self.next_slide()
-  
         self.wipe(title)
+        self.next_slide()
+        self.play(Write(lyric1))
+        self.next_slide()
+        self.wipe(lyric1)
+        self.play(Write(lyric2))
+        self.next_slide()
+        self.wipe(lyric2)
         
         self.play(Create(pnet1), Create(pnet2))
         self.play(Create(pnet1_arrow), Create(pnet2_arrow))
